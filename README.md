@@ -2,33 +2,37 @@
 A Windows-native desktop application for running and interacting with local or remote Large Language Models that can safely control and automate Windows OS tasks through a structured tool system.
 
 
-## Core Concepts
+## Architecture
+The system is composed of five core layers:
+1. 🖥️ **UI Layer**  
+   Handles user interaction and presentation.
 
-### 🔌 Multi-Model Support
-Supports multiple LLM backends:
-- Ollama (local models like Llama, Mistral, etc.)
-- LM Studio
-- vLLM / TGI OpenAI-compatible APIs
-- Custom HTTP endpoints
+2. 🧠 **Agent Runtime**  
+   Manages orchestration, execution flow, and agent logic.
 
-### 🧰 Tool-Based Agent System
-The LLM interacts with Windows only through controlled tools:
-- PowerShell execution (sandboxed)
+3. 🛠️ **Tools**  
+   Provides external capabilities such as APIs, search, and function execution.
+
+4. 🤖 **LLM Provider**  
+   Interfaces with the underlying language model provider.
+
+5. 💾 **Memory / Storage**  
+   Persists conversation history, embeddings, and application state.
+
+
+## Phase 1
+
+### Tools
+- PowerShell
 - File system operations
-- Process and service management
-- UI Automation (window interaction, input simulation)
-- System inspection tools
+- Clipboard Tool
+- Notifications
+- Keyboard/mouse
+- App launching
 
-### 🪟 Windows Native Integration
-Deep integration with Windows APIs:
-- UI Automation (inspect & control apps)
-- Registry access
-- Event logs
-- Task Scheduler
-- Process monitoring
+### LLM Provider
+- Ollama (local models like Llama, Mistral, etc.)
+- OpenAI API
 
-### 🧩 Modular Architecture
-- Pluggable tool system
-- Swappable LLM providers
-- Isolated agent runtime
-- Extensible plugin model for new capabilities
+### Memory/Storage
+TODO
