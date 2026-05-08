@@ -27,6 +27,9 @@ public class AgentRunner
             if (tool == null)
                 return $"Tool not found: {response.ToolName}";
 
+            if (string.IsNullOrWhiteSpace(response.ToolInput))
+                return $"Tool input is required for {response.ToolName}";
+
             var result = await tool.ExecuteAsync(response.ToolInput, CancellationToken.None);
 
             // 3. Send result back to LLM (optional second pass)

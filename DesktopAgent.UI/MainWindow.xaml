@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <TextBox x:Name="PromptTextBox" Grid.Row="0" Margin="10" TextWrapping="Wrap" AcceptsReturn="True" Height="100"/>
+        <Button x:Name="SendButton" Grid.Row="2" Content="Send" Margin="10" HorizontalAlignment="Right" Width="100" Click="SendButton_Click"/>
+        <TextBlock x:Name="ResponseTextBlock" Grid.Row="1" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

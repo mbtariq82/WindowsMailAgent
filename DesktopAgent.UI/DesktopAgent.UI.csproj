@@ -8,4 +8,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesktopAgent.Agent\DesktopAgent.Agent.csproj" />
+    <ProjectReference Include="..\DesktopAgent.Providers\DesktopAgent.Providers.csproj" />
+    <ProjectReference Include="..\DesktopAgent.Tools\DesktopAgent.Tools.csproj" />
+  </ItemGroup>
+
 </Project>
