@@ -1,5 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesktopAgent.Providers\DesktopAgent.Providers.csproj" />
+    <ProjectReference Include="..\DesktopAgent.Tools\DesktopAgent.Tools.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
