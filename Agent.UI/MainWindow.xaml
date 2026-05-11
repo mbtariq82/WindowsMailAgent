@@ -6,7 +6,57 @@
         xmlns:local="clr-namespace:Agent.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#F3F6F9">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="140"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <Border Grid.Row="0"
+            Background="#E6EDF3"
+            Padding="12">
+
+            <DockPanel>
+
+                <TextBlock Text="{Binding ActiveEmailAccount}"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Foreground="#102027"
+                       VerticalAlignment="Center"/>
+
+                <TextBlock Text="{Binding AgentStatus}"
+                       Foreground="#4B5563"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       DockPanel.Dock="Right"/>
+
+            </DockPanel>
+        </Border>
+
+        <!-- SETTINGS -->
+        <Border Grid.Row="1"
+            Margin="10"
+            Background="#F7FAFC"
+            CornerRadius="8"
+            Padding="10">
+
+            <ContentControl Content="{Binding CurrentSettingsView}"/>
+
+        </Border>
+
+        <!-- LOGS -->
+        <Border Grid.Row="2"
+            Background="#EDF2F7"
+            Padding="8">
+
+            <ListBox ItemsSource="{Binding Logs}"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 Foreground="#102027"/>
+        </Border>
 
     </Grid>
 </Window>
