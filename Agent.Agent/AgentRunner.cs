@@ -1,7 +1,7 @@
-﻿namespace Agent.Agent;
-
-using Agent.Providers;
+﻿using Agent.Providers;
 using Agent.Tools;
+
+namespace Agent.Agent;
 
 public class AgentRunner
 {
