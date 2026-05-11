@@ -1,38 +1,37 @@
-# WindowsDesktopApp
+# WindowsMailAgent
 A Windows-native desktop application for running and interacting with local or remote Large Language Models that can safely control and automate Windows OS tasks through a structured tool system.
 
 
 ## Architecture
 The system is composed of five core layers:
 1. 🖥️ **UI Layer**  
-   Handles user interaction and presentation.
+   For agent settings.
 
 2. 🧠 **Agent Runtime**  
-   Manages orchestration, execution flow, and agent logic.
+   Custom runtime following ubiquitous orchestration, execution flow, and logic for agents in 2026.
 
 3. 🛠️ **Tools**  
-   Provides external capabilities such as APIs, search, and function execution.
+   Provides external capabilities such as Mail, Notifications and Browser tool automation.
 
 4. 🤖 **LLM Provider**  
-   Interfaces with the underlying language model provider.
+   Currently only support local models through Ollama.
 
-5. 💾 **Memory / Storage**  
-   Persists conversation history, embeddings, and application state.
+5. 💾 **Memory**  
+   Persists application state.
 
 
 ## Phase 1
 
 ### Tools
-- PowerShell
+- Mail
+- Windows Desktop notifications
+- Browser Tool Automation
+- PowerShell operations
 - File system operations
 - Clipboard Tool
-- Notifications
-- Keyboard/mouse
-- App launching
 
 ### LLM Provider
 - Ollama (local models like Llama, Mistral, etc.)
-- OpenAI API
 
 ### Memory/Storage
 TODO
