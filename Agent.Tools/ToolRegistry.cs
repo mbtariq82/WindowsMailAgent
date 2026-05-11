@@ -1,4 +1,4 @@
-namespace DesktopAgent.Tools;
+namespace Agent.Tools;
 
 public interface IToolRegistry
 {

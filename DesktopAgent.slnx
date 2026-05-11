@@ -1,7 +1,0 @@
-<Solution>
-  <Project Path="DesktopAgent.Agent/DesktopAgent.Agent.csproj" />
-  <Project Path="DesktopAgent.Core/DesktopAgent.Core.csproj" />
-  <Project Path="DesktopAgent.Providers/DesktopAgent.Providers.csproj" />
-  <Project Path="DesktopAgent.Tools/DesktopAgent.Tools.csproj" />
-  <Project Path="DesktopAgent.UI/DesktopAgent.UI.csproj" />
-</Solution>

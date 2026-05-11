@@ -1,7 +1,7 @@
-﻿namespace DesktopAgent.Agent;
+﻿namespace Agent.Agent;
 
-using DesktopAgent.Providers;
-using DesktopAgent.Tools;
+using Agent.Providers;
+using Agent.Tools;
 
 public class AgentRunner
 {

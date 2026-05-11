@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Agent.Agent/Agent.Agent.csproj" />
+  <Project Path="Agent.Core/Agent.Core.csproj" />
+  <Project Path="Agent.Providers/Agent.Providers.csproj" />
+  <Project Path="Agent.Tools/Agent.Tools.csproj" />
+  <Project Path="Agent.UI/Agent.UI.csproj" />
+</Solution>

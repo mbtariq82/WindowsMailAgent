@@ -1,4 +1,4 @@
-﻿namespace DesktopAgent.Providers;
+﻿namespace Agent.Providers;
 
 public interface ILLMProvider
 {
