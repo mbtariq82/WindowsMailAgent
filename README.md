@@ -5,7 +5,7 @@ A Windows-native desktop application for running and interacting with local or r
 ## Architecture
 The system is composed of five core layers:
 1. 🖥️ **UI Layer**  
-   For agent settings.
+   For chat interface and agent settings.
 
 2. 🧠 **Agent Runtime**  
    Custom runtime following ubiquitous orchestration, execution flow, and logic for agents in 2026.
