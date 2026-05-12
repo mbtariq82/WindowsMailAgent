@@ -72,20 +72,27 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <!-- Input area -->
-                <DockPanel Grid.Row="1" Margin="4" LastChildFill="True">
-                    <TextBox Text="{Binding NewMessage, UpdateSourceTrigger=PropertyChanged}"
+                <!-- Input area (switched from DockPanel to Grid) -->
+                <Grid Grid.Row="1" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Column="0"
+                             Text="{Binding NewMessage, UpdateSourceTrigger=PropertyChanged}"
                              VerticalAlignment="Center"
                              Margin="0,0,8,0"
                              MinHeight="30"
                              AcceptsReturn="True"
                              HorizontalAlignment="Stretch"/>
 
-                    <Button Content="Send"
+                    <Button Grid.Column="1"
+                            Content="Send"
                             Command="{Binding SendMessageCommand}"
                             Width="80"
                             VerticalAlignment="Center"/>
-                </DockPanel>
+                </Grid>
             </Grid>
 
         </Border>
