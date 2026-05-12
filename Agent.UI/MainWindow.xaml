@@ -11,51 +11,83 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="140"/>
         </Grid.RowDefinitions>
 
         <!-- HEADER -->
         <Border Grid.Row="0"
-            Background="#E6EDF3"
-            Padding="12">
+                Background="#E6EDF3"
+                Padding="12">
 
             <DockPanel>
 
                 <TextBlock Text="{Binding ActiveEmailAccount}"
-                       FontSize="18"
-                       FontWeight="SemiBold"
-                       Foreground="#102027"
-                       VerticalAlignment="Center"/>
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="#102027"
+                           VerticalAlignment="Center"/>
 
                 <TextBlock Text="{Binding AgentStatus}"
-                       Foreground="#4B5563"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       DockPanel.Dock="Right"/>
+                           Foreground="#4B5563"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           DockPanel.Dock="Right"/>
 
             </DockPanel>
         </Border>
 
-        <!-- SETTINGS -->
+        <!-- AGENT CHAT -->
         <Border Grid.Row="1"
-            Margin="10"
-            Background="#F7FAFC"
-            CornerRadius="8"
-            Padding="10">
+                Margin="10"
+                Background="#F7FAFC"
+                CornerRadius="8"
+                Padding="8">
 
-            <ContentControl Content="{Binding CurrentSettingsView}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>   <!-- messages -->
+                    <RowDefinition Height="Auto"/> <!-- input -->
+                </Grid.RowDefinitions>
 
-        </Border>
+                <!-- Messages list -->
+                <ListBox x:Name="ChatList"
+                         Grid.Row="0"
+                         ItemsSource="{Binding ChatMessages}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="#102027"
+                         Margin="4"
+                         IsSynchronizedWithCurrentItem="True"
+                         HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#FFFFFF"
+                                    CornerRadius="6"
+                                    Padding="8"
+                                    Margin="4">
+                                <TextBlock Text="{Binding Text}"
+                                           TextWrapping="Wrap"
+                                           Foreground="#102027"/>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-        <!-- LOGS -->
-        <Border Grid.Row="2"
-            Background="#EDF2F7"
-            Padding="8">
+                <!-- Input area -->
+                <DockPanel Grid.Row="1" Margin="4" LastChildFill="True">
+                    <TextBox Text="{Binding NewMessage, UpdateSourceTrigger=PropertyChanged}"
+                             VerticalAlignment="Center"
+                             Margin="0,0,8,0"
+                             MinHeight="30"
+                             AcceptsReturn="True"
+                             HorizontalAlignment="Stretch"/>
 
-            <ListBox ItemsSource="{Binding Logs}"
-                 Background="Transparent"
-                 BorderThickness="0"
-                 Foreground="#102027"/>
+                    <Button Content="Send"
+                            Command="{Binding SendMessageCommand}"
+                            Width="80"
+                            VerticalAlignment="Center"/>
+                </DockPanel>
+            </Grid>
+
         </Border>
 
     </Grid>
