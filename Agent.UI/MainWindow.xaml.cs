@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Agent.UI.ViewModels;
+
 namespace Agent.UI;
 
 /// <summary>
@@ -19,5 +21,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+
+        DataContext = new MainWindowViewModel();
     }
 }

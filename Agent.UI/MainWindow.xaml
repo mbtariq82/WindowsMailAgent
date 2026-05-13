@@ -20,13 +20,13 @@
 
             <DockPanel>
 
-                <TextBlock Text="{Binding ActiveEmailAccount}"
+                <TextBlock Text="{Binding Header.EmailAddress}"
                            FontSize="18"
                            FontWeight="SemiBold"
                            Foreground="#102027"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="{Binding AgentStatus}"
+                <TextBlock Text="{Binding Header.StatusText}"
                            Foreground="#4B5563"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
@@ -51,7 +51,7 @@
                 <!-- Messages list -->
                 <ListBox x:Name="ChatList"
                          Grid.Row="0"
-                         ItemsSource="{Binding ChatMessages}"
+                         ItemsSource="{Binding Conversation.Messages}"
                          Background="Transparent"
                          BorderThickness="0"
                          Foreground="#102027"
@@ -64,7 +64,7 @@
                                     CornerRadius="6"
                                     Padding="8"
                                     Margin="4">
-                                <TextBlock Text="{Binding Text}"
+                                <TextBlock Text="{Binding Content}"
                                            TextWrapping="Wrap"
                                            Foreground="#102027"/>
                             </Border>
@@ -80,7 +80,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBox Grid.Column="0"
-                             Text="{Binding NewMessage, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Composer.currentMessage, UpdateSourceTrigger=PropertyChanged}"
                              VerticalAlignment="Center"
                              Margin="0,0,8,0"
                              MinHeight="30"
@@ -89,7 +89,7 @@
 
                     <Button Grid.Column="1"
                             Content="Send"
-                            Command="{Binding SendMessageCommand}"
+                            Command="{Binding Composer.SendCommand}"
                             Width="80"
                             VerticalAlignment="Center"/>
                 </Grid>
