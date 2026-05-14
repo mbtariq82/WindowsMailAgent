@@ -1,40 +1,30 @@
-﻿using Agent.Providers;
-using Agent.Tools;
+﻿using System;
+using Azure.AI.Projects;
+using Azure.Identity;
+using Microsoft.Agents.AI;
 
 namespace Agent.Agent;
 
 public class AgentRunner
 {
-    private readonly ILLMProvider _llm;
-    private readonly IToolRegistry _tools;
+    private readonly AIAgent _agent;
 
-    public AgentRunner(ILLMProvider llm, IToolRegistry tools)
+    public AgentRunner()
     {
-        _llm = llm;
-        _tools = tools;
+        var endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+            ?? throw new InvalidOperationException("Set AZURE_OPENAI_ENDPOINT");
+        var deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_NAME") ?? "gpt-4o-mini";
+
+        _agent = new AIProjectClient(new Uri(endpoint), new DefaultAzureCredential())
+            .AsAIAgent(
+                model: deploymentName,
+                instructions: "You are a friendly assistant. Keep your answers brief.",
+                name: "HelloAgent");
     }
 
     public async Task<string> RunAsync(string input)
     {
-        // 1. Ask LLM what to do
-        var response = await _llm.CompleteAsync(input);
-
-        // 2. If tool requested
-        if (!string.IsNullOrWhiteSpace(response.ToolName))
-        {
-            var tool = _tools.Get(response.ToolName);
-
-            if (tool == null)
-                return $"Tool not found: {response.ToolName}";
-
-            var result = await tool.ExecuteAsync(response.ToolInput, CancellationToken.None);
-
-            // 3. Send result back to LLM (optional second pass)
-            var finalResponse = await _llm.CompleteAsync($"Tool result: {result}");
-            return finalResponse.Content;
-        }
-
-        // 4. Otherwise just return response
-        return response.Content;
+        var response = await _agent.RunAsync<string>(input);
+        return response.Result;
     }
 }
