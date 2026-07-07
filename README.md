@@ -19,19 +19,3 @@ The system is composed of five core layers:
 5. 💾 **Memory**  
    Persists application state.
 
-
-## Phase 1
-
-### Tools
-- Mail
-- Windows Desktop notifications
-- Browser Tool Automation
-- PowerShell operations
-- File system operations
-- Clipboard Tool
-
-### LLM Provider
-- Ollama (local models like Llama, Mistral, etc.)
-
-### Memory/Storage
-TODO
